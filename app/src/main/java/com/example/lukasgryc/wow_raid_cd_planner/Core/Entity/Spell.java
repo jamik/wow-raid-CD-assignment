@@ -30,14 +30,16 @@ public class Spell {
         }
     };
 
-    SpellEffectType effect1;
-    SpellEffectType effect2;
-    SpellEffectType effect3;
-    int             effect1Val;
-    int             effect2Val;
-    int             effect3Val;
-    SpellCooldown   spellCd;
-    int             spellLasting;
+    private SpellEffectType effect1;
+    private SpellEffectType effect2;
+    private SpellEffectType effect3;
+    private int             effect1Val;
+    private int             effect2Val;
+    private int             effect3Val;
+    private SpellCooldown   spellCd;
+    private int             spellLasting;
+    private boolean         isOnCd;
+    private int             timeStarted;
 
     public Spell(SpellEffectType effect1, SpellEffectType effect2, SpellEffectType effect3,
                  int effect1Val, int effect2Val, int effect3Val, SpellCooldown spellCd, int spellLasting) {
