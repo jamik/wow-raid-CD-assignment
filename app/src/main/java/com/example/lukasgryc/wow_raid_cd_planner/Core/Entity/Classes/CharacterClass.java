@@ -1,6 +1,6 @@
 package com.example.lukasgryc.wow_raid_cd_planner.Core.Entity.Classes;
 
-import com.example.lukasgryc.wow_raid_cd_planner.Core.Entity.Spell;
+import com.example.lukasgryc.wow_raid_cd_planner.Core.Entity.Spell.SpellInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,9 +57,9 @@ public class CharacterClass {
         DESTRUCTION
     };
 
-    private String name;
-    private Specialization specialization;
-    private List<Spell> cooldowns = new ArrayList<Spell>();
+    protected String name;
+    protected Specialization specialization;
+    protected List<SpellInfo> cooldowns = new ArrayList<SpellInfo>();
 
     public CharacterClass(String name, Specialization specialization) {
         this.name = name;
@@ -82,8 +82,8 @@ public class CharacterClass {
         this.specialization = specialization;
     }
 
-    public List<Spell> getCooldowns() {
+    public List<SpellInfo> getCooldowns() {
         return cooldowns;
     }
-    
+
 }

@@ -1,10 +1,10 @@
-package com.example.lukasgryc.wow_raid_cd_planner.Core.Entity;
+package com.example.lukasgryc.wow_raid_cd_planner.Core.Entity.Spell;
 
 /**
  * Created by lukas.gryc on 12.9.2017.
  */
 
-public class Spell {
+public class SpellInfo {
 
     public enum SpellEffectType {
         HEALING,
@@ -30,6 +30,45 @@ public class Spell {
         }
     };
 
+    public enum SpellName {
+        // shaman
+        HEALING_TIDE_TOTEM,
+        SPIRIT_LINK_TOTEM,
+        ANCESTRAL_PROTECTION_TOTEM,
+        ANCESTRAL_GUIDANCE,
+        WIND_RUSH_TOTEM,
+
+        // druid
+        TRANQUILITY,
+        INNERVATE,
+        STAMPEDING_ROAR,
+
+        // paladin
+        AURA_MASTERY,
+
+        // holy priest
+        DIVINE_HYMN,
+
+        // disco priest
+        BARRIER,
+
+        // monk
+        REVIVAL,
+
+        // warrior
+        COMMMANDING_SHOUT,
+
+        // demon hunter
+        DARKNESS,
+
+        // death knight - leech spell
+
+        BLOODLUST,
+
+
+    };
+
+    private String          name;
     private SpellEffectType effect1;
     private SpellEffectType effect2;
     private SpellEffectType effect3;
@@ -38,11 +77,10 @@ public class Spell {
     private int             effect3Val;
     private SpellCooldown   spellCd;
     private int             spellLasting;
-    private boolean         isOnCd;
-    private int             timeStarted;
 
-    public Spell(SpellEffectType effect1, SpellEffectType effect2, SpellEffectType effect3,
-                 int effect1Val, int effect2Val, int effect3Val, SpellCooldown spellCd, int spellLasting) {
+    public SpellInfo(String name, SpellEffectType effect1, SpellEffectType effect2, SpellEffectType effect3,
+                     int effect1Val, int effect2Val, int effect3Val, SpellCooldown spellCd, int spellLasting) {
+        this.name    = name;
         this.effect1 = effect1;
         this.effect2 = effect2;
         this.effect3 = effect3;
