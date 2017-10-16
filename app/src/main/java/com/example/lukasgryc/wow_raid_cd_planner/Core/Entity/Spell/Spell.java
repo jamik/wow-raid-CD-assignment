@@ -1,5 +1,8 @@
 package com.example.lukasgryc.wow_raid_cd_planner.Core.Entity.Spell;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by lukas.gryc on 25.9.2017.
  */
@@ -7,13 +10,13 @@ package com.example.lukasgryc.wow_raid_cd_planner.Core.Entity.Spell;
 public class Spell {
 
     private SpellInfo       spellInfo;
-    private boolean         isOnCd;
     private int             timeStarted;
+    SpellUsage              useHistory;
+
 
     public Spell(SpellInfo spellInfo)
     {
         this.spellInfo = spellInfo;
-        isOnCd = false;
         timeStarted = 0;
     }
 
@@ -25,12 +28,11 @@ public class Spell {
         this.spellInfo = spellInfo;
     }
 
-    public boolean isOnCd() {
-        return isOnCd;
-    }
+    public boolean isReady(int timeDiff) {
+        if(useHistory.isOnCD(timeDiff, spellInfo.getSpellCd().getTimeInSec()))
+            return false;
 
-    public void setOnCd(boolean onCd) {
-        isOnCd = onCd;
+        return true;
     }
 
     public int getTimeStarted() {
@@ -39,5 +41,13 @@ public class Spell {
 
     public void setTimeStarted(int timeStarted) {
         this.timeStarted = timeStarted;
+    }
+
+    public void addSpellUsage(int timeDiff, int cd){
+        useHistory.addSpellUsed(timeDiff, cd);
+    }
+
+    public void removeUsage(int timeDiff){
+        useHistory.removeSpellUsed(timeDiff);
     }
 }

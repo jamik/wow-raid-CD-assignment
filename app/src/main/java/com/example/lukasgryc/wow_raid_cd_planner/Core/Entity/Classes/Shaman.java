@@ -14,6 +14,6 @@ public class Shaman extends CharacterClass {
     }
 
     private void initCooldowns(){
-        cooldowns.add(new SpellInfo(SpellInfo.SpellEffectType.HEALING, null, null, 100000, 0, 0, SpellInfo.SpellCooldown.CD_3_MIN, 10));
+        //cooldowns.add(new SpellInfo(SpellInfo.SpellEffectType.HEALING, null, null, 100000, 0, 0, SpellInfo.SpellCooldown.CD_3_MIN, 10));
     }
 }
